@@ -1,0 +1,110 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    body{
+    }
+    .dummyContainer{
+    }
+    .main{
+      align-self: center;
+      border: 1px solid #efefef;
+      border-radius: 1em;
+      box-shadow: 0px 8px 15px -7px;
+      padding: 1em;
+      margin: .5em;
+      /*left: 50%;
+      transform: translateX(-50%);
+      position: absolute;*/
+    }
+    pre{
+      white-space: pre;
+    }
+    #container{
+      text-align: center;
+    }
+   .worldTextarea{
+     font-family: monospace;
+     resize: none;
+   }
+   input[type="number"]{
+     text-align: right;
+   }
+
+  </style>
+</head>
+<body>
+  <div class="dummyContainer">
+  <div class="col-sm-1">
+
+  </div>
+  <div class="main col-sm-4">
+      <h3>
+        <center>
+        ASCII Wildife Simulator
+        </center>
+      </h3>
+      Feel free to edit the JS and try building your own ecosystem and see how it fares!
+      <br/>
+      <br/>
+      Try adjusting the max number of a species to achieve a balanced ecosystem.
+      <div class="form-inline">
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon2">Max</span>
+          <input class="form-control" type="number" value="999999" id="max-herbivore"/>
+          <span class="input-group-addon" id="basic-addon2">herbivores</span>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon2">Max</span>
+          <input class="form-control" type="number" value="10" id="max-carnivore"/>
+          <span class="input-group-addon" id="basic-addon2">carnivores</span>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon2">Max</span>
+          <input class="form-control" type="number" value="30" id="max-omnivore"/>
+          <span class="input-group-addon" id="basic-addon2">omnivores</span>
+        </div>
+      </div>
+      <hr />
+      <p id="result">
+        <h4>Current status</h4>
+        <ul>
+          <li>Number of plants: <span id="plant-count"></span>
+          <li>Number of herbivores: <span id="herbivore-count"></span> <span id="herbivore-died"></span>
+          <li>Number of carnivores: <span id="carnivore-count"></span> <span id="carnivore-died"></span>
+          <li>Number of omnivores: <span id="omnivore-count"></span> <span id="omnivore-died"></span>
+        </ul>
+      </p>
+      <hr/>
+      <h6>
+        Legends:
+      </h6>
+
+<pre>* - Plant (to be eaten by Herbivores and Omnivores)
+# - MossyWall (Can generate plants randomly)
+H - Herbivore
+C - Carnivore (eats Herbivores and Omnivores)
+O - Omnivores (eats Plants, Herbivores and Carnivores)</pre>
+
+    </div>
+
+  </div>
+<div class="main col-sm-5">
+  <div id="container">
+
+  </div>
+  <form class="form-inline" action="javascript:void(0)">
+    <button class="btn btn-success" id="toggleBtn" onclick="toggleAutoTakeTurn()">Turn on auto take turn </button> every
+    <input class="form-control" type="number" id="interval" value="100" min="10" max="1000"/> milliseconds.
+  </form>
+  <button class="btn btn-danger" onclick="reset()">Reset</button>
+  <h4>Your ecosystem survived for: <span id="score">0</span> turns</h4>
+
+
+  </div>
+
+    <script src="project7.js"></script>
+</body>
+</html>
